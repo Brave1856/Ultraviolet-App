@@ -1,124 +1,298 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-		/>
-		<title>Ultraviolet | Sophisticated Web Proxy</title>
-		<meta
-			name="description"
-			content="Ultraviolet is a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers. Unblock sites today!"
-		/>
-		<meta
-			name="keywords"
-			content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, titanium network, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked"
-		/>
-		<meta
-			name="theme-color"
-			media="(prefers-color-scheme: dark)"
-			content="#434c5e"
-		/>
-		<meta name="googlebot" content="index, follow, snippet" />
-		<link rel="shortcut icon" content="favicon.ico" />
-		<link rel="stylesheet" href="index.css" />
-		
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="tab-title">Workspace Portal</title>
+    <!-- Google Classroom Favicon for masking -->
+    <link id="tab-icon" rel="icon" type="image/x-icon" href="https://gstatic.com">
+    
+    <style>
+        /* Modern Glassmorphism & Cyber Theme */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
 
-		<script src="baremux/index.js"></script>
-		<script src="uv/uv.bundle.js"></script>
-		<script src="uv/uv.config.js"></script>
+        body {
+            background: radial-gradient(circle at 50% 0%, #1a153a 0%, #070514 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 0 20px;
+        }
 
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "FAQPage",
-				"mainEntity": [
-					{
-						"@type": "Question",
-						"name": "What is Ultraviolet (Web Proxy)?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers and more!"
-						}
-					},
-					{
-						"@type": "Question",
-						"name": "How do I unblock sites using Ultraviolet?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Simply head to an official site featuring Ultraviolet such as Holy Unblocker or Incognito! You can also self-host Ultraviolet on your own web server for maximum privacy."
-						}
-					},
-					{
-						"@type": "Question",
-						"name": "What if Ultraviolet is blocked or not working?",
-						"acceptedAnswer": {
-							"@type": "Answer",
-							"text": "Join the Titanium Network Discord at discord.gg/unblock!"
-						}
-					}
-				]
-			}
-		</script>
-	</head>
+        /* Glowing Header/Navbar */
+        nav {
+            width: 100%;
+            max-width: 1100px;
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-	<body>
-		<div
-			title="Ultraviolet Logo"
-			class="flex-center logo-wrapper header-center"
-		>
-			<img class="logo" src="uv.png" alt="Ultraviolet" />
-			<h1>Ultraviolet | TN</h1>
-		</div>
-		<div class="flex-center desc left-margin">
-			<p>
-				Ultraviolet is highly sophisticated proxy used for evading internet
-				censorship.
-			</p>
-		</div>
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
 
-		<form id="uv-form" class="flex-center">
-			<input
-				id="uv-search-engine"
-				value="https://www.google.com/search?q=%s"
-				type="hidden"
-			/>
-			<input id="uv-address" type="text" placeholder="Search the web freely" />
-		</form>
-		<div class="desc left-margin">
-			<p id="uv-error"></p>
-			<pre id="uv-error-code"></pre>
-		</div>
-		<footer>
-			<div>
-				<a
-					title="The TitaniumNetwork GitHub organization"
-					href="https://github.com/titaniumnetwork-dev"
-					>TitaniumNetwork</a
-				>
-				<a title="The TitaniumNetwork Discord" href="https://discord.gg/unblock"
-					>Discord</a
-				>
-				<a
-					title="The TompHTTP GitHub organization"
-					href="https://github.com/tomphttp"
-					>TompHTTP</a
-				>
-				<a
-					title="The official deployment repository for Ultraviolet"
-					href="https://github.com/titaniumnetwork-dev/Ultraviolet-App"
-					>GitHub</a
-				>
-				<a title="License information" href="credits.html">Credits</a>
-			</div>
-			<div>
-				<span>Ultraviolet &copy; TN 2023</span>
-			</div>
-		</footer>
-		<iframe style="display: none" id="uv-frame"></iframe>
-		<script src="register-sw.js"></script>
-		<script src="search.js"></script>
-		<script src="index.js"></script>
-	</body>
-</html>
+        /* Panic Button Styling */
+        .panic-btn {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(255, 75, 43, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .panic-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(255, 75, 43, 0.6);
+        }
+
+        /* Main Search Container */
+        .hero-section {
+            text-align: center;
+            margin: 80px 0 50px 0;
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #ffffff 0%, #b3b3b3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 20px 30px;
+            border-radius: 100px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            color: #ffffff;
+            font-size: 1.2rem;
+            outline: none;
+            transition: all 0.4s ease;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+        }
+
+        .search-bar:focus {
+            border-color: #00f2fe;
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.25), 
+                        inset 0 1px 1px rgba(255,255,255,0.1);
+        }
+
+        /* Apps & Games Dashboard Grid */
+        .dashboard {
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 60px;
+        }
+
+        .dashboard-title {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        /* Interactive Cyber Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 242, 254, 0.1);
+        }
+
+        .card-emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-emoji {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive scaling for mobile phones */
+        @media (max-width: 600px) {
+            .hero-section h1 { font-size: 2.2rem; }
+            .search-bar { padding: 16px 22px; font-size: 1rem; }
+            .grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .card { padding: 20px 10px; }
+            .card-emoji { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Navigation -->
+    <nav>
+        <div class="logo">NEXUS</div>
+        <button class="panic-btn" onclick="triggerPanic()">PANIC BUTTON (ESC)</button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="hero-section">
+        <h1>Welcome Back</h1>
+        <p>Search the web securely or select a quick launch app below.</p>
+        
+        <div class="search-wrapper">
+            <form id="proxy-form">
+                <input type="text" class="search-bar" id="proxy-search" placeholder="Type a URL or ask a question...">
+            </form>
+        </div>
+    </div>
+
+    <!-- Quick Options Dashboard -->
+    <div class="dashboard">
+        <h2 class="dashboard-title">Quick Dashboard</h2>
+        <div class="grid">
+            <div class="card" onclick="launchProxy('https://google.com')">
+                <span class="card-emoji">🔍</span>
+                <h3>Google</h3>
+            </div>
+            <div class="card" onclick="launchProxy('https://youtube.com')">
+                <span class="card-emoji">📺</span>
+                <h3>YouTube</h3>
+            </div>
+            <div class="card" onclick="launchProxy('https://discord.com')">
+                <span class="card-emoji">💬</span>
+                <h3>Discord</h3>
+            </div>
+            <div class="card" onclick="launchProxy('https://github.com')">
+                <span class="card-emoji">💻</span>
+                <h3>GitHub</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. Proxy Search Logic ---
+        const form = document.getElementById('proxy-form');
+        const input = document.getElementById('proxy-search');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            let url = input.value.trim();
+            
+            if (!url) return;
+
+            // Differentiate between search terms and standard website domains
+            if (!url.includes('.') || url.includes(' ')) {
+                url = 'https://google.com/search?q=' + encodeURIComponent(url);
+            } else if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+
+            launchProxy(url);
+        });
+
+        function launchProxy(url) {
+            // Links directly to the Ultraviolet configuration engine
+            if (window.__uv_config) {
+                window.location.href = __uv_config.prefix + __uv_config.encodeUrl(url);
+            } else {
+                alert("Proxy backend routing is offline or building. Ensure your hosting service script is active!");
+            }
+        }
+
+        // --- 2. Panic Button Cloaking Trigger ---
+        function triggerPanic() {
+            // Wipe the proxy content clean with white background and boring placeholder text
+            document.body.innerHTML = `
+                <div style="background: #ffffff; color: #5f6368; padding: 30px; font-family: 'Roboto',Arial,sans-serif; height: 100vh; width: 100vw; position: fixed; top: 0; left: 0; box-sizing: border-box;">
+                    <h1 style="color: #1f1f1f; font-size: 24px; font-weight: 400;">Classes</h1>
+                    <p style="font-size: 14px; margin-top: 10px;">Loading classroom dashboards...</p>
+                </div>
+            `;
+            document.body.style.background = "#ffffff";
+
+            // Mask browser header metadata
+            document.getElementById('tab-title').innerText = "Classes";
+            document.getElementById('tab-icon').href = "https://gstatic.com";
+            
+            // Instantly route to genuine Google Classroom portal
+            setTimeout(() => {
+
+            
+
